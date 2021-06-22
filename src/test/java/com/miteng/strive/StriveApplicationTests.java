@@ -1,18 +1,18 @@
 package com.miteng.strive;
 
 import com.miteng.strive.pojo.Money;
+import com.miteng.strive.transaction.TxService;
 import com.miteng.strive.util.SpringContextHolder;
-import org.junit.jupiter.api.Test;;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
+
+;import java.io.FileNotFoundException;
 
 
 @SpringBootTest
@@ -42,6 +42,13 @@ class StriveApplicationTests {
     public void test2() {
         Money bean = SpringContextHolder.getBean(Money.class);
         System.out.println(bean);
+    }
+    @Autowired
+    private TxService txService;
+
+    @Test
+    public void transaction() throws FileNotFoundException {
+        txService.test1();
     }
 
 
