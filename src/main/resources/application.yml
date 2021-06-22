@@ -3,4 +3,4 @@ spring:
     url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: 521215
-    driver-class-name: com.mysql.cj.jdbc.Driver #q驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
