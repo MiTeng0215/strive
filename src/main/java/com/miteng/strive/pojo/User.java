@@ -13,8 +13,4 @@ import org.springframework.stereotype.Component;
 public class User {
     private Integer id;
     private String name;
-
-    public User() {
-        System.out.println("User对象创建了");
-    }
 }

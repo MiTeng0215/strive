@@ -1,11 +1,8 @@
 package com.miteng.strive.ServletDemo;
 
-import com.sun.deploy.net.HttpResponse;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.resource.HttpResource;
 
 import javax.servlet.http.*;
 

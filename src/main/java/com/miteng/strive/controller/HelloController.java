@@ -1,17 +1,24 @@
 package com.miteng.strive.controller;
 
+import com.miteng.strive.pojo.Person;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Component
+/**
+ * @author Administrator
+ */
+@Controller
+@RestController
 public class HelloController {
-    HelloController() {
-        System.out.println("初始化方法...");
-    }
-
-    private static String path = "";
-
-    static {
-        path = PathUtil.getPath();
-    }
+//    @GetMapping("hello")
+//    public Person hello() {
+//        Person person = new Person();
+//        person.setAge(18);
+//        person.setName("sqq");
+//        person.setId(23);
+//        System.out.println("hello");
+//        return person;
+//    }
 }
