@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://ts-dev-mysql.aegis-info.com:3308/jl_leader_cloud?serverTimezone=GMT%2B8&useSSL=false
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: 521215
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,3 +12,6 @@ spring:
 #    properties.hibernate.dialect: org.hibernate.dialect.Kingbase8Dialect
 #    hibernate.ddl-auto: none
 #    show-sql: false
+logging:
+  level:
+    com.miteng.strive: trace

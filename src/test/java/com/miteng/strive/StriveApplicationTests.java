@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -19,11 +21,13 @@ import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.yaml.snakeyaml.Yaml;
 
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
+
+;
+;
 
 
 @SpringBootTest
@@ -57,9 +61,16 @@ class StriveApplicationTests {
     @Autowired
     private TxService txService;
 
+    Logger logger = LoggerFactory.getLogger(getClass());
+
     @Test
-    public void transaction() throws FileNotFoundException {
-        txService.test1();
+    public void log() {
+        // 日志级别: trace<debug<logger<warn<error 默认级别>=info
+        logger.trace("hello trace");
+        logger.debug("hello debug");
+        logger.info("hello logger");
+        logger.warn("hello warn");
+        logger.error("hello error");
     }
 
 
