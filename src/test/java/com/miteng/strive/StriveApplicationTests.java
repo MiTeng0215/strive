@@ -1,9 +1,13 @@
 package com.miteng.strive;
 
+import com.miteng.strive.dao.MoneyMapper;
 import com.miteng.strive.pojo.Money;
-import com.miteng.strive.pojo.Person;
 import com.miteng.strive.transaction.TxService;
 import com.miteng.strive.util.SpringContextHolder;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,11 +21,8 @@ import org.yaml.snakeyaml.Yaml;
 
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Map;
 
 
@@ -99,6 +100,28 @@ class StriveApplicationTests {
        Yaml yaml = new Yaml();
        Map<String, Object> object = yaml.load(input);
        System.out.println(object);
+   }
+
+   @Autowired
+   private SqlSession sqlSession;
+
+   @Test
+   public void testSql() throws IOException {
+       String resource = "mybatis-config.xml";
+       InputStream inputStream = Resources.getResourceAsStream(resource);
+       SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+       try (SqlSession session = sqlSessionFactory.openSession()) {
+           MoneyMapper mapper = session.getMapper(MoneyMapper.class);
+           Money moneyById = mapper.getMoneyById(1);
+           System.out.println(moneyById);
+       }
+   }
+
+   @Test
+   public void testsql2() {
+       MoneyMapper mapper = sqlSession.getMapper(MoneyMapper.class);
+       Money moneyById = mapper.getMoneyById(1);
+       System.out.println(moneyById);
    }
 
 }
