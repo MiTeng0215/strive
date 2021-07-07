@@ -26,9 +26,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
-;
-;
-
 
 @SpringBootTest
 @Rollback(false)
@@ -126,13 +123,6 @@ class StriveApplicationTests {
            Money moneyById = mapper.getMoneyById(1);
            System.out.println(moneyById);
        }
-   }
-
-   @Test
-   public void testsql2() {
-       MoneyMapper mapper = sqlSession.getMapper(MoneyMapper.class);
-       Money moneyById = mapper.getMoneyById(1);
-       System.out.println(moneyById);
    }
 
 }
