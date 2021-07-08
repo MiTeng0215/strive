@@ -110,9 +110,6 @@ class StriveApplicationTests {
        System.out.println(object);
    }
 
-   @Autowired
-   private SqlSession sqlSession;
-
    @Test
    public void testSql() throws IOException {
        String resource = "mybatis-config.xml";

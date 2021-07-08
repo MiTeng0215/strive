@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.miteng.strive.dao.MoneyMapper">
-    <select id="getMoneyById" resultType="com.miteng.strive.pojo.Money">
+    <select id="getMoneyById" resultType="Money">
     select * from money where id = #{id}
   </select>
 </mapper>
